@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class GrossPay {
-    // A programm that calculate the gross pay based on 
+    // A program that calculates the gross pay based on 
     // whether the employee is married or not and how many children 
     // the employee has. 
     public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class GrossPay {
         int basePay = 0;
         int extra = 0;
         
-        // Ask the employee is married or not
+        // Ask if the employee is married or not
         System.out.println("Are you married or not? Please enter 0 for single and 1 for married:");
         status = keyb.nextInt();
     
