@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class Assignment8 {
+    // A programm that calculate the gross pay based on 
+    // whether the employee is married or not and how many children 
+    // the employee has. 
+    public static void main(String[] args) {
+        Scanner keyb = new Scanner(System.in);
+        int status;
+        int numberOfChildren;
+        int workHours;
+        int grossPay;
+        int basePay = 0;
+        int extra = 0;
+        
+        // Ask the employee is married or not
+        System.out.println("Are you married or not? Please enter 0 for single and 1 for married:");
+        status = keyb.nextInt();
+    
+        // Ask how many children the employee has 
+        System.out.println("How many children you have?");
+        numberOfChildren = keyb.nextInt();
+        
+        // Ask the employee their number of hours worked
+        System.out.println("Please enter your work hour(s):");
+        workHours = keyb.nextInt();
+        
+        // Calculate the base pay for single 
+        if (status == 0) 
+            basePay = 10;
+            
+        // Calculate the base pay for married
+        else if (status == 1) {
+            basePay = 15;
+            
+            // Calculate the extra pay 
+            if (numberOfChildren > 0 && numberOfChildren < 4) {
+                extra = numberOfChildren;
+            } else if (numberOfChildren >=4) {
+                extra = 4;
+            }
+        }
+        
+        // Calculate the gross pay
+        if (workHours <= 40) {
+            grossPay = workHours * (basePay + extra);
+        } else {
+            int overtimeHours = workHours - 40;
+            int overtimePay = (int) (overtimeHours * 1.5 * basePay);
+            grossPay = (workHours * basePay + extra) + overtimePay;
+        }
+    
+        // Print the gross pay
+        System.out.println("Your gross pay is: " + grossPay);
+        
+        // Calculate the income tax 
+        double incomeTax = 0;
+        if (grossPay >= 600) {
+            incomeTax = grossPay * 0.10;
+        } else if (grossPay >= 400) {
+            incomeTax = grossPay * 0.08;
+        } else if (grossPay >= 300) {
+            incomeTax = grossPay * 0.05;
+        }
+
+        System.out.println("Your income tax deduction is: " + incomeTax);
+        
+        // Deduction income tax from gross pay 
+        double netPay = grossPay - incomeTax;
+        System.out.println("Your net pay after income tax deduction is: " + netPay);
+        
+    }
+}
+
