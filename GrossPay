@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Assignment8 {
+public class GrossPay {
     // A programm that calculate the gross pay based on 
     // whether the employee is married or not and how many children 
     // the employee has. 
